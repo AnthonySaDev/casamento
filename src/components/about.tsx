@@ -57,29 +57,35 @@ export default function About() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 0.4 }}
-        className='bg-foreground p-20 rounded-br-[200px] shadow-sm max-w-[90%] ml-0'
+        className='bg-foreground p-6 sm:p-12 md:p-20 rounded-br-[200px] shadow-sm max-w-[90%] ml-0'
       >
-        <div className='flex flex-col gap-8 max-w-4xl'>
-          <div className='flex items-center gap-4'>
-            <PiChurchBold className='text-5xl text-secondary-green' />
+        <div className='flex flex-col gap-6 sm:gap-8 max-w-4xl'>
+          <div className='flex items-center gap-2 sm:gap-4'>
+            <PiChurchBold className='text-3xl sm:text-4xl md:text-5xl text-secondary-green' />
             <div>
-              <h2 className='font-cormorant text-4xl font-medium text-secondary-green'>Igreja Nossa Senhora Aparecida e São Francisco de Assis</h2>
+              <h2 className='font-cormorant text-2xl sm:text-3xl md:text-4xl font-medium text-secondary-green'>
+                Igreja Nossa Senhora Aparecida e São Francisco de Assis
+              </h2>
             </div>
           </div>
           
-          <div className='flex items-start gap-4'>
-            <IoLocationOutline className='text-4xl text-secondary-green mt-1' />
-            <p className='text-2xl text-[#767676] font-cormorant'>
+          <div className='flex items-start gap-2 sm:gap-4'>
+            <IoLocationOutline className='text-2xl sm:text-3xl md:text-4xl text-secondary-green mt-1' />
+            <p className='text-lg sm:text-xl md:text-2xl text-[#767676] font-cormorant'>
               Av. Olímpio Prates, 736 - Maj. Prates, <br />
               Montes Claros - MG, 39403-261
             </p>
           </div>
 
-          <div className='flex items-center gap-4'>
-            <IoTimeOutline className='text-4xl text-secondary-green' />
+          <div className='flex items-center gap-2 sm:gap-4'>
+            <IoTimeOutline className='text-2xl sm:text-3xl md:text-4xl text-secondary-green' />
             <div className='flex flex-col'>
-            <p className='font-cormorant text-2xl text-[#767676] mt-2'>26 de Julho de 2025</p>
-            <p className='text-2xl text-[#767676] font-cormorant'>16 horas</p>
+              <p className='font-cormorant text-lg sm:text-xl md:text-2xl text-[#767676]'>
+                26 de Julho de 2025
+              </p>
+              <p className='text-lg sm:text-xl md:text-2xl text-[#767676] font-cormorant'>
+                16 horas
+              </p>
             </div>
           </div>
         </div>
@@ -89,7 +95,7 @@ export default function About() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className='flex flex-wrap gap-12 mt-16'
+          className='flex flex-wrap justify-center sm:justify-start gap-6 sm:gap-12 mt-8 sm:mt-16'
         >
           {[
             { value: timeLeft.months, label: 'Meses' },
@@ -103,18 +109,17 @@ export default function About() {
               initial={{ scale: 0.9 }}
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className='text-center min-w-[120px]'
+              className='text-center min-w-[90px] sm:min-w-[120px]'
             >
-              <span className='font-cormorant text-6xl font-bold text-secondary-green block'>
+              <span className='font-cormorant text-4xl sm:text-5xl md:text-6xl font-bold text-secondary-green block'>
                 {item.value}
               </span>
-              <p className='font-cormorant text-xl text-[#767676] mt-2'>
+              <p className='font-cormorant text-base sm:text-lg md:text-xl text-[#767676] mt-1 sm:mt-2'>
                 {item.label}
               </p>
             </motion.div>
           ))}
         </motion.div>
-
       </motion.div>
     </main>
   )
