@@ -341,7 +341,7 @@ const Gifts = () => {
                 </div>
               )}
             </section>
-            <div className="flex justify-center gap-10 mt-4">
+            <div className="flex flex-col md:flex-row justify-center gap-10 mt-4">
               <button
                 onClick={cancelarAssinatura}
                 className="bg-gray-300 px-4 py-2 rounded-lg"
