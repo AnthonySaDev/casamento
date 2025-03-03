@@ -90,3 +90,6 @@
 }
 
 
+.my-12:last-child {
+  margin-bottom: 0;
+}

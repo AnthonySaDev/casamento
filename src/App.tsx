@@ -1,23 +1,17 @@
-import Header from './components/header'
-import Hero from './components/hero'
-import History from './components/history'
-import About from './components/about'
-import Footer from './components/footer'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Gifts from "./pages/Gifts";
 
-export default function App() {
+
+function App() {
   return (
-    <div className="bg-background w-screen">
-      <Header />
-      <div id="hero">
-        <Hero />
-      </div>
-      <div id="history">
-        <History />
-      </div>
-      <div id="about">
-        <About />
-      </div>
-      <Footer />
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/presentes" element={<Gifts />} />
+      </Routes>
+    </Router>
+  );
 }
+
+export default App;
