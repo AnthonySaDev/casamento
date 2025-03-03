@@ -366,7 +366,7 @@ const Gifts = () => {
       {/* Modal de Agradecimento */}
       {showThankYouModal && (
         <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center z-50">
-          <div className="p-6 rounded-lg w-80 text-center">
+          <div className="bg-background p-6 rounded-lg w-1/2 text-center">
             <h2 className="text-xl mb-4">
               <FaGift className="text-4xl text-[#6D4B3D]" />
               <br />
