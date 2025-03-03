@@ -309,7 +309,8 @@ const Gifts = () => {
         <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center z-50">
           <div className="bg-background p-6 rounded-lg w-full md:w-1/2 mx-4 text-center">
             <section>
-              <h2 className="text-xl mb-4">
+         { selectedDonationMethod === null && (   
+          <>  <h2 className="text-xl mb-4">
                 <FaGift className="text-4xl text-[#6D4B3D]" />
                 <br />
                 Confirme sua assinatura
@@ -317,6 +318,8 @@ const Gifts = () => {
               <p className="mb-4">
                 Escolha o método de contribuição. Ao confirmar, o presente será assinado.
               </p>
+              </>
+              )}
 
               <div className="flex flex-col md:flex-row gap-4 justify-center my-6">
                 <button
