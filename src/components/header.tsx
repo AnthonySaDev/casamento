@@ -61,25 +61,25 @@ export default function Header() {
       >
         <a 
           onClick={() => handleNavigation('/', 'hero')} 
-          className="text-secondary-green cursor-pointer hover-underline-animation"
+          className="text-secondary-green text-sm cursor-pointer hover-underline-animation"
         >
           Início
         </a>
         <a 
           onClick={() => handleNavigation('/', 'history')} 
-          className="text-secondary-green cursor-pointer hover-underline-animation"
+          className="text-secondary-green text-sm cursor-pointer hover-underline-animation"
         >
           História
         </a>
         <a 
           onClick={() => handleNavigation('/', 'about')} 
-          className="text-secondary-green cursor-pointer hover-underline-animation"
+          className="text-secondary-green text-sm cursor-pointer hover-underline-animation"
         >
-          O Dia
+          Sobre
         </a>
         <a 
           onClick={() => navigate('/presentes')}
-          className="text-secondary-green cursor-pointer hover-underline-animation"
+          className="text-secondary-green text-sm cursor-pointer hover-underline-animation"
         >
           Presentes
         </a>

@@ -3,7 +3,7 @@ import { firestore } from "../../firebase";
 import { doc, updateDoc, collection, getDocs } from "firebase/firestore";
 import { motion } from "framer-motion";
 import Header from "../components/header";
-import { FaCheckCircle, FaRegCircle, FaGift } from "react-icons/fa";
+import { FaCheckCircle, FaRegCircle, FaGift, FaRegMoneyBillAlt, FaHome } from "react-icons/fa";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { RiSearchLine } from "react-icons/ri";
 import qrCode from "../assets/qrcode-pix.png";
@@ -34,11 +34,11 @@ interface Presente {
 const Gifts = () => {
   const [presentes, setPresentes] = useState<Presente[]>([]);
   const [expandedItem, setExpandedItem] = useState<string | null>(null);
+  const [selectedDonationMethod, setSelectedDonationMethod] = useState<string | null>(null);
   const [nome, setNome] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [showModal, setShowModal] = useState<boolean>(false);
   const [itemToSign, setItemToSign] = useState<string | null>(null);
-  const [doarEmDinheiro, setDoarEmDinheiro] = useState<boolean>(false);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [showThankYouModal, setShowThankYouModal] = useState<boolean>(false);
@@ -78,8 +78,8 @@ const Gifts = () => {
   const abrirModal = (itemId: string) => {
     setItemToSign(itemId);
     setShowModal(true);
+    setSelectedDonationMethod(null); // Reseta a seleção ao abrir o modal
   };
-
   const assinarPresente = async () => {
     if (!nome.trim()) {
       alert("Digite seu nome para assinar o presente!");
@@ -121,9 +121,6 @@ const Gifts = () => {
     setItemToSign(null);
   };
 
-  const handleDoarEmDinheiro = () => {
-    setDoarEmDinheiro(!doarEmDinheiro);
-  };
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
@@ -269,11 +266,6 @@ const Gifts = () => {
                               {item.nome}
                             </span>
                           </section>
-                          {item.assinado && (
-                            <span className="text-amber-900 italic text-sm">
-                              Assinado por: {item.quemAssinou}
-                            </span>
-                          )}
                         </div>
 
                         {expandedItem === item.id && !item.assinado && (
@@ -315,7 +307,7 @@ const Gifts = () => {
       {/* Modal de Confirmação */}
       {showModal && (
         <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center z-50">
-          <div className="bg-background p-6 rounded-lg w-1/2 text-center">
+          <div className="bg-background p-6 rounded-lg w-full md:w-1/2 mx-4 text-center">
             <section>
               <h2 className="text-xl mb-4">
                 <FaGift className="text-4xl text-[#6D4B3D]" />
@@ -323,46 +315,94 @@ const Gifts = () => {
                 Confirme sua assinatura
               </h2>
               <p className="mb-4">
-                Você pode fazer a doação em dinheiro ou entregar pessoalmente. Ao confirmar, o presente será assinado.
+                Escolha o método de contribuição. Ao confirmar, o presente será assinado.
               </p>
 
-              <button
-                className="italic cursor-pointer text-zinc-600 font-semibold hover:text-zinc-900 px-4 py-2 rounded-lg mt-4"
-                onClick={handleDoarEmDinheiro}
-              >
-                {doarEmDinheiro ? "Entregar pessoalmente" : "Doar em dinheiro"}
-              </button>
+              <div className="flex flex-col md:flex-row gap-4 justify-center my-6">
+                <button
+                  onClick={() => setSelectedDonationMethod('dinheiro')}
+                  className={`p-4 rounded-lg border-2 transition-all ${
+                    selectedDonationMethod === 'dinheiro'
+                      ? 'border-[#6D4B3D] bg-[#6D4B3D]/10'
+                      : 'border-gray-300 hover:border-[#6D4B3D]/50'
+                  }`}
+                >
+                  <FaRegMoneyBillAlt className="text-3xl mx-auto mb-2" />
+                  <span className="font-semibold">Doar em Dinheiro</span>
+                </button>
 
-              {doarEmDinheiro && (
-                <div className="mt-4 text-center flex flex-col items-center justify-center">
-                  <p>Chave pix: 15209492605</p>
-                  <span>ou</span>
-                  <img src={qrCode} alt="QR Code" />
+                <button
+                  onClick={() => setSelectedDonationMethod('casa')}
+                  className={`p-4 rounded-lg border-2 transition-all ${
+                    selectedDonationMethod === 'casa'
+                      ? 'border-[#6D4B3D] bg-[#6D4B3D]/10'
+                      : 'border-gray-300 hover:border-[#6D4B3D]/50'
+                  }`}
+                >
+                  <FaHome className="text-3xl mx-auto mb-2" />
+                  <span className="font-semibold">Entregar em Casa</span>
+                </button>
+              </div>
+
+              {selectedDonationMethod === 'dinheiro' && (
+                <div className="mt-6 text-center flex flex-col items-center justify-center">
+                  <p className="mb-2">Chave PIX: 15209492605</p>
+                  <div className="bg-white p-2 rounded-lg shadow-lg">
+                    <img 
+                      src={qrCode} 
+                      alt="QR Code PIX" 
+                      className="w-48 h-48 object-contain"
+                    />
+                  </div>
+                  <p className="mt-2 text-sm text-gray-600">
+                    Escaneie o QR Code ou use a chave PIX
+                  </p>
+                </div>
+              )}
+
+              {selectedDonationMethod === 'casa' && (
+                <div className="mt-6 text-center space-y-2">
+                  <p className="font-semibold">Endereço para entrega:</p>
+                  <p className="text-gray-700">
+                    Rua Abel Sena, 638<br />
+                    Bairro Eldorado<br />
+                    ou <br />
+                    Rua Ana Ferreira Antunes, 201<br />
+                    Bairro Santa Eugênia
+                  </p>
+                  <p className="mt-4 text-sm text-gray-600">
+                    Por favor, entre em contato para combinar a entrega
+                  </p>
                 </div>
               )}
             </section>
-            <div className="flex flex-col md:flex-row justify-center gap-10 mt-4">
+
+            <div className="flex flex-col md:flex-row justify-center gap-4 mt-8">
               <button
                 onClick={cancelarAssinatura}
-                className="bg-gray-300 px-4 py-2 rounded-lg"
+                className="bg-gray-300 px-6 py-3 rounded-lg hover:bg-gray-400 transition-colors"
               >
                 Cancelar
               </button>
               <button
                 onClick={assinarPresente}
-                className="bg-[#6D4B3D] hover:brightness-125 duration-100 ease-in-out text-white px-4 py-2 rounded-lg"
+                disabled={!selectedDonationMethod}
+                className={`px-6 py-3 rounded-lg transition-colors ${
+                  selectedDonationMethod
+                    ? 'bg-[#6D4B3D] hover:bg-[#5D3B2D] text-white'
+                    : 'bg-gray-300 cursor-not-allowed'
+                }`}
               >
                 {loading ? (
-                  <AiOutlineLoading3Quarters className="animate-spin" />
+                  <AiOutlineLoading3Quarters className="animate-spin mx-auto" />
                 ) : (
-                  <span>Assinar</span>
+                  'Confirmar Assinatura'
                 )}
               </button>
             </div>
           </div>
         </div>
       )}
-
       {/* Modal de Agradecimento */}
       {showThankYouModal && (
         <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center z-50">
