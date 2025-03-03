@@ -304,129 +304,129 @@ const Gifts = () => {
         </motion.div>
       )}
 
-      {/* Modal de Confirmação */}
-      {showModal && (
-        <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center z-50">
-          <div className="bg-background p-6 rounded-lg w-full md:w-1/2 mx-4 text-center">
-            <section>
-         { selectedDonationMethod === null && (   
-          <>  <h2 className="text-xl mb-4">
-                <FaGift className="text-4xl text-[#6D4B3D]" />
-                <br />
-                Confirme sua assinatura
-              </h2>
-              <p className="mb-4">
-                Escolha o método de contribuição. Ao confirmar, o presente será assinado.
-              </p>
-              </>
-              )}
-
-              <div className="flex flex-col md:flex-row gap-4 justify-center my-6">
-                <button
-                  onClick={() => setSelectedDonationMethod('dinheiro')}
-                  className={`p-4 rounded-lg border-2 transition-all ${
-                    selectedDonationMethod === 'dinheiro'
-                      ? 'border-[#6D4B3D] bg-[#6D4B3D]/10'
-                      : 'border-gray-300 hover:border-[#6D4B3D]/50'
-                  }`}
-                >
-                  <FaRegMoneyBillAlt className="text-3xl mx-auto mb-2" />
-                  <span className="font-semibold">Doar em Dinheiro</span>
-                </button>
-
-                <button
-                  onClick={() => setSelectedDonationMethod('casa')}
-                  className={`p-4 rounded-lg border-2 transition-all ${
-                    selectedDonationMethod === 'casa'
-                      ? 'border-[#6D4B3D] bg-[#6D4B3D]/10'
-                      : 'border-gray-300 hover:border-[#6D4B3D]/50'
-                  }`}
-                >
-                  <FaHome className="text-3xl mx-auto mb-2" />
-                  <span className="font-semibold">Entregar em Casa</span>
-                </button>
-              </div>
-
-              {selectedDonationMethod === 'dinheiro' && (
-                <div className="mt-6 text-center flex flex-col items-center justify-center">
-                  <p className="mb-2">Chave PIX: 15209492605</p>
-                  <div className="bg-white p-2 rounded-lg shadow-lg">
-                    <img 
-                      src={qrCode} 
-                      alt="QR Code PIX" 
-                      className="w-48 h-48 object-contain"
-                    />
-                  </div>
-                  <p className="mt-2 text-sm text-gray-600">
-                    Escaneie o QR Code ou use a chave PIX
-                  </p>
-                </div>
-              )}
-
-              {selectedDonationMethod === 'casa' && (
-                <div className="mt-6 text-center space-y-2">
-                  <p className="font-semibold">Endereço para entrega:</p>
-                  <p className="text-gray-700">
-                    Rua Abel Sena, 638<br />
-                    Bairro Eldorado<br />
-                    ou <br />
-                    Rua Ana Ferreira Antunes, 201<br />
-                    Bairro Santa Eugênia
-                  </p>
-                  <p className="mt-4 text-sm text-gray-600">
-                    Por favor, entre em contato para combinar a entrega
-                  </p>
-                </div>
-              )}
-            </section>
-
-            <div className="flex flex-col md:flex-row justify-center gap-4 mt-8">
-              <button
-                onClick={cancelarAssinatura}
-                className="bg-gray-300 px-6 py-3 rounded-lg hover:bg-gray-400 transition-colors"
-              >
-                Cancelar
-              </button>
-              <button
-                onClick={assinarPresente}
-                disabled={!selectedDonationMethod}
-                className={`px-6 py-3 rounded-lg transition-colors ${
-                  selectedDonationMethod
-                    ? 'bg-[#6D4B3D] hover:bg-[#5D3B2D] text-white'
-                    : 'bg-gray-300 cursor-not-allowed'
-                }`}
-              >
-                {loading ? (
-                  <AiOutlineLoading3Quarters className="animate-spin mx-auto" />
-                ) : (
-                  'Confirmar Assinatura'
-                )}
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-      {/* Modal de Agradecimento */}
-      {showThankYouModal && (
-        <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center z-50">
-          <div className="bg-background p-6 rounded-lg w-1/2 text-center">
+{showModal && (
+  <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center z-50">
+    <div className="bg-background p-6 rounded-lg w-full md:w-1/2 mx-4 text-center max-h-[90vh] overflow-y-auto">
+      <section>
+   
             <h2 className="text-xl mb-4">
               <FaGift className="text-4xl text-[#6D4B3D]" />
               <br />
-              Obrigado pela sua contribuição!
+              Confirme sua assinatura
             </h2>
             <p className="mb-4">
-              Sua generosidade ajudará muito. Agradecemos de coração!
+              Escolha o método de contribuição. Ao confirmar, o presente será assinado.
             </p>
-            <button
-              onClick={() => setShowThankYouModal(false)}
-              className="bg-[#6D4B3D] text-white px-6 py-2 rounded-lg"
-            >
-              Fechar
-            </button>
-          </div>
+
+
+        <div className="flex flex-col md:flex-row gap-4 justify-center my-6">
+          <button
+            onClick={() => setSelectedDonationMethod('dinheiro')}
+            className={`p-4 rounded-lg border-2 transition-all ${
+              selectedDonationMethod === 'dinheiro'
+                ? 'border-[#6D4B3D] bg-[#6D4B3D]/10'
+                : 'border-gray-300 hover:border-[#6D4B3D]/50'
+            }`}
+          >
+            <FaRegMoneyBillAlt className="text-3xl mx-auto mb-2" />
+            <span className="font-semibold">Doar em Dinheiro</span>
+          </button>
+
+          <button
+            onClick={() => setSelectedDonationMethod('casa')}
+            className={`p-4 rounded-lg border-2 transition-all ${
+              selectedDonationMethod === 'casa'
+                ? 'border-[#6D4B3D] bg-[#6D4B3D]/10'
+                : 'border-gray-300 hover:border-[#6D4B3D]/50'
+            }`}
+          >
+            <FaHome className="text-3xl mx-auto mb-2" />
+            <span className="font-semibold">Entregar em Casa</span>
+          </button>
         </div>
-      )}
+
+        {selectedDonationMethod === 'dinheiro' && (
+          <div className="mt-6 text-center flex flex-col items-center justify-center">
+            <p className="mb-2">Chave PIX: 15209492605</p>
+            <div className="bg-white p-2 rounded-lg shadow-lg">
+              <img 
+                src={qrCode} 
+                alt="QR Code PIX" 
+                className="w-48 h-48 object-contain"
+              />
+            </div>
+            <p className="mt-2 text-sm text-gray-600">
+              Escaneie o QR Code ou use a chave PIX
+            </p>
+          </div>
+        )}
+
+        {selectedDonationMethod === 'casa' && (
+          <div className="mt-6 text-center space-y-2">
+            <p className="font-semibold">Endereço para entrega:</p>
+            <p className="text-gray-700">
+              Rua Abel Sena, 638<br />
+              Bairro Eldorado<br />
+              ou <br />
+              Rua Ana Ferreira Antunes, 201<br />
+              Bairro Santa Eugênia
+            </p>
+            <p className="mt-4 text-sm text-gray-600">
+              Por favor, entre em contato para combinar a entrega
+            </p>
+          </div>
+        )}
+      </section>
+
+      <div className="flex flex-col md:flex-row justify-center gap-4 mt-8">
+        <button
+          onClick={cancelarAssinatura}
+          className="bg-gray-300 px-6 py-3 rounded-lg hover:bg-gray-400 transition-colors"
+        >
+          Cancelar
+        </button>
+        <button
+          onClick={assinarPresente}
+          disabled={!selectedDonationMethod}
+          className={`px-6 py-3 rounded-lg transition-colors ${
+            selectedDonationMethod
+              ? 'bg-[#6D4B3D] hover:bg-[#5D3B2D] text-white'
+              : 'bg-gray-300 cursor-not-allowed'
+          }`}
+        >
+          {loading ? (
+            <AiOutlineLoading3Quarters className="animate-spin mx-auto" />
+          ) : (
+            'Confirmar Assinatura'
+          )}
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
+{/* Modal de Agradecimento */}
+{showThankYouModal && (
+  <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center z-50">
+    <div className="bg-background p-6 rounded-lg w-1/2 text-center max-h-[90vh] overflow-y-auto">
+      <h2 className="text-xl mb-4">
+        <FaGift className="text-4xl text-[#6D4B3D]" />
+        <br />
+        Obrigado pela sua contribuição!
+      </h2>
+      <p className="mb-4">
+        Sua generosidade ajudará muito. Agradecemos de coração!
+      </p>
+      <button
+        onClick={() => setShowThankYouModal(false)}
+        className="bg-[#6D4B3D] text-white px-6 py-2 rounded-lg"
+      >
+        Fechar
+      </button>
+    </div>
+  </div>
+)}
+
     </motion.main>
   );
 };
