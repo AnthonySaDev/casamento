@@ -72,13 +72,13 @@ const Gifts = () => {
 
   const toggleExpand = (itemId: string) => {
     setExpandedItem(expandedItem === itemId ? null : itemId);
-    setNome(""); // Limpa o campo de nome ao expandir/recolher
+    setNome(""); 
   };
 
   const abrirModal = (itemId: string) => {
     setItemToSign(itemId);
     setShowModal(true);
-    setSelectedDonationMethod(null); // Reseta a seleção ao abrir o modal
+    setSelectedDonationMethod(null);
   };
   const assinarPresente = async () => {
     if (!nome.trim()) {
@@ -108,7 +108,6 @@ const Gifts = () => {
       setNome("");
       setExpandedItem(null);
 
-      // Exibe o modal de agradecimento
       setShowThankYouModal(true);
     } catch (error) {
       console.error("Erro ao assinar presente:", error);
@@ -174,10 +173,6 @@ const Gifts = () => {
           Bambu
           </p>
         </div>
-
-          <div className="w-[200px] h-[200px] flex items-center justify-center bg-white shadow-xl">
-            <p className="text-black text-center">Branco</p>
-          </div>
         </div>
       </section>
 
