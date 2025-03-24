@@ -13,7 +13,7 @@ import banheiro from "../assets/banheira.png";
 import quarto from "../assets/quarto.png";
 import lavanderia from "../assets/lavandaria.png";
 import bambu from "../assets/bambu.jpg";
-
+import luaDeMel from "../assets/luaDeMel.png";
 // Definindo as imagens para cada categoria
 const categoryImages: { [key: string]: string } = {
   cozinha: cozinha,
@@ -21,6 +21,7 @@ const categoryImages: { [key: string]: string } = {
   banheiro: banheiro,
   quarto: quarto,
   lavanderia: lavanderia,
+  luaDeMel: luaDeMel
 };
 
 interface Presente {
