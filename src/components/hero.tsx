@@ -41,7 +41,7 @@ export default function Hero() {
           </motion.p>
         </section>
         
-        <section className='w-9/12 xl:w-1/2 overflow-hidden'>
+        <section className='w-10/12 xl:w-1/2 overflow-hidden'>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -59,11 +59,9 @@ export default function Hero() {
                 transition: { duration: 0.4, ease: "easeOut" }
               }}
               src="/igreja.png" 
-              alt="Imagem da Igreja" 
-              width={1200}
-              height={800}
-              className='object-cover w-full h-full'
-            />
+              alt="Imagem da Igreja"
+              className="w-full h-[900px] object-cover object-[42%_15%] sm:object-center"
+              />
           </motion.div>
         </section>
       </div>
