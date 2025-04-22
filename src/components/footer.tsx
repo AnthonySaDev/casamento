@@ -39,7 +39,7 @@ export default function Footer() {
             Cada um de vocês tem um lugar especial em nossos corações.
           </p>
           <p className='text text-secondary-green leading-7'>
-            Com amor,
+            Com amor, Hemilly e Anthony
           </p>
           <p className='text text-zinc-200 font-cormorant text-xl'>
             26 de Julho de 2025

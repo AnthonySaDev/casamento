@@ -13,7 +13,7 @@ import banheiro from "../assets/banheira.png";
 import quarto from "../assets/quarto.png";
 import lavanderia from "../assets/lavandaria.png";
 import bambu from "../assets/bambu.jpg";
-import luaDeMel from "../assets/luaDeMel.png";
+import luademel from "../assets/luaDeMel.png"
 // Definindo as imagens para cada categoria
 const categoryImages: { [key: string]: string } = {
   cozinha: cozinha,
@@ -21,7 +21,7 @@ const categoryImages: { [key: string]: string } = {
   banheiro: banheiro,
   quarto: quarto,
   lavanderia: lavanderia,
-  luaDeMel: luaDeMel
+  luademel: luademel
 };
 
 interface Presente {
@@ -77,6 +77,7 @@ const Gifts = () => {
   };
 
   const abrirModal = (itemId: string) => {
+    if(!nome) return
     setItemToSign(itemId);
     setShowModal(true);
     setSelectedDonationMethod(null);
@@ -223,8 +224,8 @@ const Gifts = () => {
                   <div className="flex items-center gap-4 my-4">
                     {/* Exibe a imagem da categoria */}
                     <img
-                      src={categoryImages[categoria.toLowerCase()]}
-                      alt={categoria}
+                        src={categoryImages[categoria.toLowerCase().replace(/\s/g, "")]}
+                        alt={categoria}
                       className="w-12 h-12 object-cover"
                     />
                     <h2 className="text-2xl font-bold my-4 capitalize">

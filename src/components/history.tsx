@@ -23,16 +23,17 @@ export default function History() {
             className='absolute -bottom-24 right-24 z-10'
           />
           <motion.img 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            src="/history.png" 
-            alt="Imagem da História" 
-            width={1200}
-            height={800}
-            className='w-full h-full object-cover rounded-tr-[80px]'
-          />
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          src="/history.png" 
+          alt="Imagem da História" 
+          width={1200}
+          height={800}
+          className="w-full h-full object-cover object-[center_40%] rounded-tr-[80px]"
+        />
+
         </motion.section>
 
         <section className='w-full xl:w-1/2 mt-10 xl:mt-0'>
@@ -50,9 +51,6 @@ export default function History() {
               </p>
               <p className='text text-[#767676] leading-7 text-left xl:text-left'>
                 Tudo começou com muitas conversas, brincadeiras e longas ligações. Discord foi nosso cupido, o espaço onde dividimos muitos filmes, sonhos e histórias. Aos poucos, algo especial começou a surgir. Sem pressa, fomos nos conhecendo, nos apaixonando e descobrindo que nossos propósitos se alinhavam de maneira única.
-              </p>
-              <p className='text text-[#767676] leading-7 text-left xl:text-left'>
-                Chegou o momento em que estar distante já não fazia sentido. Mas, por um breve período, a distância foi necessária – um desafio, mas que enfrentamos com fé e coragem. Foram meses de saudade, mas Deus tinha outros planos para nós e logo pudemos estar juntos novamente, ficou claro que nossa união era parte de algo muito maior.
               </p>
               <p className='text text-[#767676] leading-7 text-left xl:text-left'>
                 Deus esteve presente em cada detalhe da nossa história. Ele nos guiou, nos fortaleceu e nos mostrou que seu amor é a base de tudo. E agora, ao darmos esse passo tão importante, seguimos confiando na vontade d&apos;Ele, gratos por cada bênção que nos trouxe até aqui.
