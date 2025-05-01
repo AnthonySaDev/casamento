@@ -60,7 +60,7 @@ export default function Hero() {
               }}
               src="/igreja.png" 
               alt="Imagem da Igreja"
-              className="w-full h-[900px] object-cover object-[42%_15%] sm:object-center"
+              className="w-full h-[600px] object-cover object-[42%_15%] sm:object-top rounded-bl-[80px]"
               />
           </motion.div>
         </section>

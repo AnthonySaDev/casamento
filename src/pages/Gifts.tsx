@@ -21,9 +21,8 @@ const categoryImages: { [key: string]: string } = {
   banheiro: banheiro,
   quarto: quarto,
   lavanderia: lavanderia,
-  luademel: luademel
-};
-
+  luademel: luademel,
+}
 interface Presente {
   id: string;
   nome: string;
