@@ -16,7 +16,8 @@ export default function History() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            src="/food.png" 
+            src="/food.webp"
+            loading='lazy'
             alt="Decoração" 
             width={200}
             height={100}
@@ -27,7 +28,8 @@ export default function History() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          src="/history.png" 
+          src="/history.webp"
+          loading='lazy'
           alt="Imagem da História" 
           width={1200}
           height={800}

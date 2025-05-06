@@ -58,7 +58,8 @@ export default function Hero() {
                 scale: 1.05,
                 transition: { duration: 0.4, ease: "easeOut" }
               }}
-              src="/igreja.png" 
+              src="/igreja.webp"
+              loading='lazy'
               alt="Imagem da Igreja"
               className="w-full h-[600px] object-cover object-[42%_15%] sm:object-top rounded-bl-[80px]"
               />
