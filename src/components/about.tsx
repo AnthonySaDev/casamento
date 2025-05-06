@@ -64,7 +64,7 @@ export default function About() {
             <PiChurchBold className='text-3xl sm:text-4xl md:text-5xl text-secondary-green' />
             <div>
               <h2 className='font-cormorant text-2xl sm:text-3xl md:text-4xl font-medium text-secondary-green'>
-                Igreja Nossa Senhora Aparecida e São Francisco de Assis
+              Paróquia São João Paulo II
               </h2>
             </div>
           </div>
