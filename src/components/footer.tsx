@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { IoIosArrowUp } from "react-icons/io"
+import { useNavigate } from "react-router-dom";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -8,6 +9,8 @@ export default function Footer() {
       behavior: 'smooth'
     })
   }
+
+const navigate = useNavigate();
 
   return (
     <footer className='flex flex-col items-center justify-center mt-20 bg-primary-green px-8 sm:px-12 md:px-30 xl:px-48 py-16 relative'>
@@ -39,7 +42,8 @@ export default function Footer() {
             Cada um de vocês tem um lugar especial em nossos corações.
           </p>
           <p className='text text-secondary-green leading-7'>
-            Com amor, Hemilly e Anthony
+            Com amor, <button className='cursor-default' onClick={() => navigate("/secret-names")}
+            >Hemilly</button> e Anthony
           </p>
           <p className='text text-zinc-200 font-cormorant text-xl'>
             26 de Julho de 2025
