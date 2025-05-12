@@ -84,7 +84,7 @@ export default function About() {
                 26 de Julho de 2025
               </p>
               <p className='text-lg sm:text-xl md:text-2xl text-[#767676] font-cormorant'>
-                16 horas
+                15:30 horas
               </p>
             </div>
           </div>
